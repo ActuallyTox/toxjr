@@ -1,14 +1,15 @@
 const fetch=require('node-fetch');
-const { MessageEmbed} = require('discord.js');
+const { MessageEmbed } = require('discord.js');
+var response ='';
 exports.run= async (client,msg,param)=>{
-    fetch("https://randomfox.ca/floof/")
+    fetch("http://shibe.online/api/shibes")
         .then((results)=>results.json())
         .then((data)=>{
             if(!param){
                 msg.channel.send({
                         embeds:[{
-                            title:"Fox Picture",
-                            image:{url:data.image}
+                            title:"Shiba Inu Picture",
+                            image:{url:data}
                         }]
                     }
 
@@ -17,4 +18,4 @@ exports.run= async (client,msg,param)=>{
             console.log(data)
         })
 }
-exports.metadata= ['','Der Bot schickt Fuchsbilder.']
+exports.metadata= ['','Der Bot schickt ein Shiba Inu']

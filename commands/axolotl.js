@@ -16,6 +16,6 @@ exports.run= async (client,msg,param)=>{
 
                 )
             }
-            console.log(data)
         })
 }
+exports.metadata = ['','Der Bot schickt ein Axolotl Bild + Fakt']

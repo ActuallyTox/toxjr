@@ -5,7 +5,7 @@ dotenv.config();
 const { Client, Collection, Intents } = require('discord.js');
 const { token, clientId, guildId ,prefix} = process.env;
 const allIntents = new Intents(32767);
-const client = new Client({ intents:allIntents });
+const client = new Client({ intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 
 /*
@@ -47,26 +47,31 @@ function commandHandler(msg){
 */
 client.on('messageCreate',msg=>{
     if(msg.author.bot) return;
-    const args = msg.content.split(' ')
-    if(args[0]!==prefix) return;
-    if(args.length===1&&args[0]==prefix){
-        const command=client.commands.get("help");
-        command.run(client,msg);
-
-    }else {
-
-        if (args.length === 2) {
-            const command = client.commands.get(args[1]);
+    if(!msg.content.startsWith(prefix))return;
+    const input = msg.content.replace(prefix,'');
+    const args = input.split(' ')
+    console.log(args);
+    console.log("input="+input);
+        if (args.length === 1) {
+            if(args[0]===''){
+                try{
+                    client.commands.get("help").run(client,msg);
+                }catch(e){
+                    msg.reply(`Befehl nicht verfügbar:\n${e}`)
+                }
+                return;
+            }
+            const command = client.commands.get(args[0]);
             try {
                 command.run(client, msg);
             } catch (e) {
                 msg.reply(`Befehl nicht verfügbar:\n${e}`)
             }
 
-        } else if (args.length >= 3) {
-            const command = client.commands.get(args[1]);
+        } else if (args.length >= 2) {
+            const command = client.commands.get(args[0]);
             try {
-                command.run(client, msg, args[2]);
+                command.run(client, msg, args[1]);
             } catch (e) {
                 msg.reply(`Befehl nicht verfügbar:\n${e}`)
             }
@@ -74,5 +79,10 @@ client.on('messageCreate',msg=>{
         } else{
             msg.reply("Zu viele Argumente")
     }
-    }
+
     })
+
+function split_at_index(value, index)
+{
+    return value.substring(0, index) + "," + value.substring(index);
+}
