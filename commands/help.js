@@ -1,5 +1,5 @@
 exports.run=(client,message,param)=>{
-    let helptext = 'Gültige Befehle bestehen aus dem Prefix ('+client.prefix+') und gegebenenfalls einem Parameter.\n\n'
+    let helptext = 'Gültige Befehle bestehen aus dem Prefix ('+process.env.prefix+') und gegebenenfalls einem Parameter.\n\n'
     client.commands.forEach((value, key) => {
 
         helptext += `${key}${value.metadata[0]} : ${value.metadata[1]}\n`;

@@ -3,7 +3,7 @@ const fs = require('fs')
 const dotenv= require("dotenv")
 dotenv.config();
 const { Client, Collection, Intents } = require('discord.js');
-const { token, clientId, guildId ,prefix} = process.env;
+const { token} = process.env;
 const allIntents = new Intents(32767);
 const client = new Client({ intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
@@ -32,7 +32,7 @@ for (const file of commands){
 
 //readystate handler
 client.once('ready',()=>{
-
+    const prefix = process.env.prefix;
     console.log(`logged in as:\n${client.user.tag}\n${prefix}`)
 })
 
@@ -46,12 +46,11 @@ function commandHandler(msg){
 }
 */
 client.on('messageCreate',msg=>{
+    const prefix = process.env.prefix;
     if(msg.author.bot) return;
     if(!msg.content.startsWith(prefix))return;
     const input = msg.content.replace(prefix,'');
     const args = input.split(' ')
-    console.log(args);
-    console.log("input="+input);
         if (args.length === 1) {
             if(args[0]===''){
                 try{

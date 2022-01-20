@@ -1,6 +1,5 @@
 const fetch=require('node-fetch');
 const { MessageEmbed } = require('discord.js');
-var response ='';
 exports.run= async (client,msg,param)=>{
     fetch("http://shibe.online/api/shibes")
         .then((results)=>results.json())
@@ -15,7 +14,6 @@ exports.run= async (client,msg,param)=>{
 
                 )
             }
-            console.log(data)
         })
 }
 exports.metadata= ['','Der Bot schickt ein Shiba Inu']
