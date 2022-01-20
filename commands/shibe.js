@@ -9,7 +9,7 @@ exports.run= async (client,msg,param)=>{
                 msg.channel.send({
                         embeds:[{
                             title:"Shiba Inu Picture",
-                            image:{url:data}
+                            image:{url:data[0]}
                         }]
                     }
 
