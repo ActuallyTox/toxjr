@@ -1,6 +1,6 @@
 {
   "name": "toxjrnode",
-  "version": "v1.3",
+  "version": "v1.4",
   "author": "toex",
   "description": "-Prefix jetzt änderbar und Standard-Prefix auf $ gesetzt ($command -> also kein Leerzeichen mehr zwischen Prefix und Command es sei denn das Leerzeichen gehört zum Prefix)",
   "main": "index.js",
