@@ -2,7 +2,7 @@
   "name": "toxjrnode",
   "version": "v1.4",
   "author": "toex",
-  "description": "-Prefix jetzt änderbar und Standard-Prefix auf $ gesetzt ($command -> also kein Leerzeichen mehr zwischen Prefix und Command es sei denn das Leerzeichen gehört zum Prefix)",
+  "description": "-patch_notes command hinzugeügt und automatisiert",
   "main": "index.js",
   "dependencies": {
     "@discordjs/builders": "^0.11.0",
