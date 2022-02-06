@@ -1,8 +1,8 @@
 {
   "name": "toxjrnode",
-  "version": "v1.4",
+  "version": "v1.5",
   "author": "toex",
-  "description": "-patch_notes command hinzugeügt und automatisiert",
+  "description": "-quotes-command hinzugefügt",
   "main": "index.js",
   "dependencies": {
     "@discordjs/builders": "^0.11.0",
