@@ -1,17 +1,22 @@
 const quotes = require('./bin/quotes.json');
 const {version, description} = require("../package.json");
 exports.run = (client, message, param) => {
-    const rand = Math.floor(Math.random() * quotes.length);
-    const quote = quotes[rand]
+    let quote;
+    if (param){
+       quote = quotes[param]
+    }else {
+        const rand = Math.floor(Math.random() * quotes.length);
+    quote = quotes[rand]
+    }
     let embedtxt = [
         {
             "type": "rich",
-            "title": "",
+            "title": " ",
             "description": quote.text,
             "color": 0x00FFFF,
             "fields": [
                 {
-                    "name": "\u200B",
+                    "name": "\u200b",
                     "value": quote.timestamp
                 }
             ],
@@ -21,6 +26,9 @@ exports.run = (client, message, param) => {
             }
         }
     ]
+    if (quote.zu){
+        embedtxt[0].title = quote.zu
+    }
     message.channel.send({embeds: embedtxt})
 }
 exports.metadata = ['', 'Probiers aus.']
