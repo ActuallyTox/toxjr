@@ -1,5 +1,5 @@
 const fs =require("fs");
-const {description , version} = require('../package.json')
+const {patchnotes , version} = require('../package.json')
 exports.run=(client,message,param)=>{
 
    // let package = JSON.parse(fs.readFileSync('../package.json', 'utf8'))
@@ -8,7 +8,7 @@ exports.run=(client,message,param)=>{
         {
             "type": "rich",
             "title": version,
-            "description":description,
+            "description":patchnotes,
             "color": 0x00FFFF,
             "fields": [
                 {
