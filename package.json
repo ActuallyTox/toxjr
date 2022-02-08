@@ -1,8 +1,9 @@
 {
   "name": "toxjrnode",
-  "version": "v1.5",
+  "version": "v1.6",
   "author": "toex",
-  "description": "-quotes-command hinzugefügt",
+  "description": "An all-purpose Discord-bot written in JavaScript",
+  "patchnotes": "-revamped patch note system\n-added index parameter for quotes",
   "main": "index.js",
   "dependencies": {
     "@discordjs/builders": "^0.11.0",
